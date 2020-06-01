@@ -17,9 +17,11 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['I was born in Jamaica', 'My birthday is June 13th, 2000', 
+      ['Cheeseburgers are my favorite food', 'I don\'t like peanut butter', 
        'Blue is my favorite color', 'Heights and cockroaches terrify me',
-       'I was a swimmer in highschool', 'Bojack Horseman is my favorite show on Netflix'];
+       'I was a swimmer in highschool', 'Bojack Horseman is my favorite show on Netflix',
+       'I\'m learning how to kickbox'
+      ];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
