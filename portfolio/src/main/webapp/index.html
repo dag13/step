@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload ="getComments()">
     <div id="content">
       <h1>Deron Gentle's Portfolio</h1>
 
@@ -56,10 +56,22 @@
       <img src="/Images/monopoly.jpg" alt ="Monopoly" width="384" height="512">
       <img src="/Images/beach.jpg" alt ="Beach" width="384" height="512">
       <img src="/Images/manunited.jpg" alt ="Manchester United" width="384" height="512">
-        
+
       <p>Click here to learn a random fact about me:</p>
       <button onclick="addRandomGreeting()">Click Here</button>
       <div id="greeting-container"></div>
+
+      <h2>Comments</h2>
+
+      <form action="/data" method="POST">
+        <textarea name="text-input"></textarea>
+        <br>
+        <input type="submit"/>
+      </form>
+
+      <br>
+      <button onclick="loadComments()">Click here to see comments</button>
+      <div id="task-list"></div>
     </div>
   </body>
 </html>
