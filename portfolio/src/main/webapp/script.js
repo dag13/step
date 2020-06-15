@@ -12,26 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+
 /**
- * Adds a random greeting to the page.
+ * Adds a random personal fact to the page.
  */
-function addRandomGreeting() 
+function addRandomPersonalFact() 
 {
-  const greetings =
+  const randomPersonalFacts =
       ['Cheeseburgers are my favorite food', 'I don\'t like peanut butter', 
        'Blue is my favorite color', 'Heights and cockroaches terrify me',
        'I was a swimmer in highschool', 'Bojack Horseman is my favorite show on Netflix',
        'I\'m learning how to kickbox'
       ];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  // Pick a random personal fact.
+  const randomFact = randomPersonalFacts[Math.floor(Math.random() * randomPersonalFacts.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const factContainer = document.getElementById('personal-container');
+  factContainer.innerText = randomFact;
 }
 
+// Adds comments to the page
 function loadComments() 
 {
   fetch('/data').then(response => response.json()).then((tasks) => 
@@ -71,9 +74,11 @@ function createTaskElement(task)
     return taskElement;
 }
 
+
 /** Tells the server to delete the task. */
 function deleteTask(task) {
   const params = new URLSearchParams();
   params.append('id', task.id);
   fetch('/delete-task', {method: 'POST', body: params});
 }
+
