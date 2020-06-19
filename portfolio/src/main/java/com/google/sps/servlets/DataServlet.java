@@ -1,4 +1,4 @@
-// Copyright 2019 Google LLC
+// Copyright 2020 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -31,8 +31,9 @@ import javax.servlet.http.HttpServletResponse;
 // Servlet that handles comments
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  // This method takes comments, timestamps and the id of comments and creates a Task object.
-  // It then converts the Task object to a json.
+  /* This method takes comments, timestamps and the id of comments and creates a Task object.
+   * It then converts the Task object to a json.
+   */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
@@ -66,20 +67,19 @@ public class DataServlet extends HttpServlet {
     taskEntity.setProperty("comment", comment);
     taskEntity.setProperty("timestamp", timestamp);
 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(taskEntity);
+    DatastoreService savedComments = DatastoreServiceFactory.getDatastoreService();
+    savedComments.put(taskEntity);
 
     response.sendRedirect("/index.html");
   }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
-    value = (value == null) ? defaultValue : value;
-
-    return value;
+    return (value == null) ? defaultValue : value;
   }
 }
 
+// The Task class is used to store and group information that will be used for comments
 class Task {
   private final long id;
   private final long timestamp;
