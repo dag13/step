@@ -1,4 +1,4 @@
-# This repo contains Deron Gentles's portfolio and STEP projects
+# This repo contains Deron Gentles's portfolio
 
 This work is based on the [Google Software Product Sprint](https://g.co/softwareproductsprint) program.
 
